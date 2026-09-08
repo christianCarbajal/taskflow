@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  background: #f4f5f7;
+  color: #1a1a1a;
+}
+
+header.topbar {
+  background: #202940;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header.topbar a {
+  color: #cbd2e0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+header.topbar a.active {
+  color: white;
+  font-weight: 600;
+}
+
+main {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* --- stile "board" (curato) --- */
+
+.board {
+  display: flex;
+  gap: 16px;
+}
+
+.board-column {
+  flex: 1;
+  background: #ebecf0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.board-column h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #5e6c84;
+  margin: 0 0 10px 4px;
+}
+
+.task-card {
+  background: white;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.25);
+  border-left: 4px solid #999;
+}
+
+.task-card.status-todo {
+  border-left-color: #dfe1e6;
+}
+
+.task-card.status-in_progress {
+  border-left-color: #ffab00;
+}
+
+.task-card.status-done {
+  border-left-color: #36b37e;
+}
+
+.task-card .task-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.task-card .task-owner {
+  font-size: 12px;
+  color: #6b778c;
+}
+
+/* --- stile "dashboard" (da sistemare - vedi task) --- */
+
+table.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+table.task-table th,
+table.task-table td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+table.task-table th {
+  background: #ddd;
+}

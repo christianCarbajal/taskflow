@@ -95,6 +95,12 @@ h1 {
 
 /* --- stile "dashboard" (da sistemare - vedi task) --- */
 
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
 table.task-table {
   width: 100%;
   border-collapse: collapse;

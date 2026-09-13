@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "http://localhost:8001/api";
 
 async function fetchTasks() {
   const res = await fetch(`${API_BASE}/tasks`);
@@ -11,13 +11,13 @@ function renderDashboardTable(tasks) {
   if (!body) return;
   body.innerHTML = "";
   for (const task of tasks) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${task.title}</td>
-      <td>${task.owner || "-"}</td>
-      <td>${task.status}</td>
+    const card = document.createElement("div");
+    card.className = `task-card status-${task.status}`;
+    card.innerHTML = `
+      <div class="task-title">${task.title}</div>
+      <div class="task-owner">${task.owner || "non assegnato"} · ${task.status}</div>
     `;
-    body.appendChild(tr);
+    body.appendChild(card);
   }
 }
 

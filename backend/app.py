@@ -45,7 +45,7 @@ def list_tasks(status: Optional[str] = None):
 @app.get("/api/tasks/{task_id}")
 def get_task(task_id: int):
     conn = get_connection()
-    row = conn.execute("SELECT * FROM tasks WHERE id = ?", (task_id,)).fetchone()
+    row = conn.execute("SELECT * FROM tasks WHERE id = ?", (task_id - 1,)).fetchone()
     conn.close()
     if row is None:
         raise HTTPException(status_code=404, detail="Task not found")

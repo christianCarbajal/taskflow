@@ -40,9 +40,25 @@ function renderBoardColumns(tasks) {
     card.innerHTML = `
       <div class="task-title">${task.title}</div>
       <div class="task-owner">${task.owner || "non assegnato"}</div>
+      <button class="delete-btn">Elimina</button>
     `;
+
+    const btn = card.querySelector(".delete-btn");
+    btn.addEventListener("click", () => deleteTask(task.id));
+
     col.appendChild(card);
   }
+}
+
+async function deleteTask(id) {
+  const res = await fetch(`${API_BASE}/tasks/${id}`, { method: "DELETE" });
+  if (!res.ok) {
+    console.error("Errore durante l'eliminazione");
+    return;
+  }
+  const tasks = await fetchTasks();
+  renderDashboardTable(tasks);
+  renderBoardColumns(tasks);
 }
 
 async function initPage() {
